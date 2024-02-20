@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -10,10 +10,34 @@ import MaxWidthWrapper from "@/components/max-width-wrapper";
 import Navbar from "@/components/navbar";
 
 const SignUp = () => {
+  const [timer, setTimer] = useState(10);
+
+  const startTimer = () => {
+    useEffect(() => {
+      let interval: any;
+
+      // Start the timer
+      if (timer > 0) {
+        interval = setInterval(() => {
+          setTimer((prevTimer) => prevTimer - 1);
+        }, 1000);
+      }
+
+      // Clear the interval when the component unmounts or the timer reaches 0
+      return () => clearInterval(interval);
+    }, [timer]);
+  };
+
+  const handleRequestNewCode = () => {
+    setTimer(10);
+  };
+
+  
+  startTimer();
   return (
     <>
       <Navbar />
-      <script src="https://accounts.google.com/gsi/client" async></script>
+
       <div className="flex items-center justify-center h-[70vh]  mt-4">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-1">Moving to the runway</h1>
@@ -42,11 +66,25 @@ const SignUp = () => {
           </div>
 
           <div className="flex justify-end my-3">
-            <span className=" text-sm max-w-prose text-muted-foreground">Request new code</span>
+            {timer > 0 ? (
+              <span className="text-sm max-w-prose text-muted-foreground">
+                {Math.floor(timer / 60)}:
+                {(timer % 60).toString().padStart(2, "0")}
+              </span>
+            ) : (
+              <span
+                className=" text-sm max-w-prose text-muted-foreground cursor-pointer"
+                onClick={handleRequestNewCode}
+              >
+                Request new code
+              </span>
+            )}
           </div>
 
           {/* Button */}
-          <Button className="w-full mb-3">Continue</Button>
+          <Button type="button" className="w-full mb-3">
+            Continue
+          </Button>
         </div>
       </div>
     </>

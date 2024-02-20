@@ -1,8 +1,8 @@
-import { Layout, CheckCircle, BarChart2, Columns4Icon, Bell } from "lucide-react";
+import { Layout, CheckCircle, BarChart2, Columns4Icon, Bell,LayoutGrid } from "lucide-react";
 
 export const RouteList = [
     {
-        icon: Layout,
+        icon: LayoutGrid,
         label: 'Dashboard',
         href: '/'
     },
