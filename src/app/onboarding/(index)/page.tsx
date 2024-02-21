@@ -1,6 +1,11 @@
 import React from "react";
-import { Input } from "@/components/ui/input";
+import { Input, } from "@/components/ui/input";
 import { Button, buttonVariants } from "@/components/ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 
 const OnBoardingIndex = () => {
   return (
@@ -24,6 +29,15 @@ const OnBoardingIndex = () => {
         <span className="flex justify-start max-w-prose text-muted-foreground">
           You can edit the slug.
         </span>
+        <div className="mb-3">
+          <Input
+            type="text"
+            value="plane.pro.cybersquare.org/"
+            className="px-4 text-gray-500 w-full"
+            readOnly
+          />
+        </div>
+        
         <div className="mb-3">
           <Input
             type="text"

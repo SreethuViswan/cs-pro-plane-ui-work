@@ -11,8 +11,9 @@ export class AuthService extends APIService {
     }
 
 
-    async authenticateUser(data: any): Promise<any> {
-        return this.post("/api/authenticate/", data, { headers: {} })
+    async authenticateUser(email: any): Promise<any> {
+      console.log({email})
+        return this.post("/api/authenticate/", { email }, { headers: {} })
           .then((response) => {
             // this.setAccessToken(response?.data?.access_token);
             // this.setRefreshToken(response?.data?.refresh_token);
@@ -22,4 +23,17 @@ export class AuthService extends APIService {
             throw error?.response?.data;
           });
       }
+
+      async setPassword(password: any): Promise<any> {
+        
+          return this.patch("/api/user/password/set/", { password }, { headers: {} })
+            .then((response) => {
+              // this.setAccessToken(response?.data?.access_token);
+              // this.setRefreshToken(response?.data?.refresh_token);
+              return response?.data;
+            })
+            .catch((error) => {
+              throw error?.response?.data;
+            });
+        }
 }
