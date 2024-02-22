@@ -1,8 +1,9 @@
 import React from 'react'
+import ProjectOverview from '../component/project-overview/page'
 
 const DashBoard = () => {
   return (
-    <div>DashBoard</div>
+    <div><ProjectOverview/></div>
   )
 }
 

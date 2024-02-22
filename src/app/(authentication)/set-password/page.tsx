@@ -54,7 +54,7 @@ const SignUp = () => {
       <Navbar />
       <div className="flex items-center justify-center h-[70vh] mt-4">
         <div className="text-center">
-          <h1 className="text-4xl font-semibold mb-1">Set your password</h1>
+          <h1 className="text-4xl font-semibold mb-1">Set Your password</h1>
           <p className="mt-3 text-sm max-w-prose text-muted-foreground">
             If you'd like to do away with codes, set a password here
           </p>
@@ -63,25 +63,26 @@ const SignUp = () => {
             <Input
               type="text"
               value={email}
+              placeholder="enter password"
               className="px-4 text-gray-500 w-full"
               readOnly
             />
           </div>
           <form onSubmit={handleSubmit(onFormSubmit)}>
-            <div className="mb-6">
-              <Input
-                placeholder="enter password"
+            <div className="flex mb-4 ">
+              <Input 
+            placeholder="enter password"
                 {...register("password")}
                 type="password"
                 className={cn(
                   {
                     "focus-visible:ring-red-500": errors.password,
                   },
-                  "px-4 border border-white rounded-md w-full"
+                  // "px-4 border border-white rounded-md w-full"
                 )}
               />
               {errors?.password && (
-                <p className="text-sm text-red-500">
+                <p className="text-sm text- red-500">
                   {errors.password.message}
                 </p>
               )}
