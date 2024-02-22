@@ -10,7 +10,9 @@ const OnBoardingIndex = () => {
     "just myself",
     "1-20",
     "21-50",
-    "51-100"
+    "51-200",
+    "201-500",
+    "500+"
   ]
   return (
     <div className="flex h-[70vh] mt-4 ml-20">
@@ -57,6 +59,8 @@ const OnBoardingIndex = () => {
         <Button className="w-full mb-3">Make it live</Button>
       </div>
     </div>
+
+
   );
 };
 
