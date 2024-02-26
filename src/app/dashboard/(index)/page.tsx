@@ -1,9 +1,13 @@
 import React from 'react'
-import ProjectOverview from '../component/project-overview/page'
+import ProductTour from '../_component/product-tour'
 
 const DashBoard = () => {
+  const name:any = "Sreethu EA"
   return (
-    <div><ProjectOverview/></div>
+    <div>
+      <ProductTour name={name} />
+      
+    </div>
   )
 }
 
